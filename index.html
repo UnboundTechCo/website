@@ -8,36 +8,47 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
-      --primary: #0056b3;
-      --secondary: #003c7e;
-      --text: #2c3e50;
+      --primary: #16a34a;
+      --secondary: #15803d;
+      --text: #1f2937;
       --bg: #ffffff;
-      --card-bg: #f8f9fa;
-      --hover: #e9ecef;
-      --footer-bg: #f4f6f8;
-      --shadow: rgba(0, 0, 0, 0.1);
-      --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      --btn-text: var(--primary);
+      --card-bg: #f8fafc;
+      --hover: #dcfce7;
+      --footer-bg: #f8fafc;
+      --nav-overlay: rgba(255, 255, 255, 0.95);
+      --shadow: rgba(22, 163, 74, 0.1);
+      --card-shadow: 0 4px 6px rgba(22, 163, 74, 0.08);
+      --btn-text: #ffffff;
+      --btn-bg: var(--primary);
+      --btn-hover: #15803d;
     }
 
     [data-theme="dark"] {
-      --primary: #3b82f6;
-      --secondary: #1d4ed8;
-      --text: #e2e8f0;
+      --primary: #22c55e;
+      --secondary: #16a34a;
+      --text: #f1f5f9;
       --bg: #0f172a;
       --card-bg: #1e293b;
-      --hover: #334155;
+      --hover: #064e3b;
       --footer-bg: #1e293b;
-      --shadow: rgba(0, 0, 0, 0.3);
-      --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      --nav-overlay: rgba(0, 0, 0, 0.85);
+      --shadow: rgba(34, 197, 94, 0.3);
+      --card-shadow: 0 4px 6px rgba(34, 197, 94, 0.2);
       --btn-text: #ffffff;
+      --btn-bg: var(--primary);
+      --btn-hover: #16a34a;
     }
 
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      transition: all 0.3s ease;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
     }
 
     body {
@@ -51,14 +62,17 @@
       position: fixed;
       top: 0;
       width: 100%;
-      background: var(--bg);
-      padding: 1rem;
+      background: linear-gradient(var(--nav-overlay), var(--nav-overlay)), url('cover.png');
+      background-size: cover;
+      background-position: center;
+      padding: 0.5rem 1rem;
       box-shadow: 0 2px 5px var(--shadow);
       z-index: 1000;
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
       border-bottom: 1px solid var(--hover);
     }
+
 
     .nav-content {
       max-width: 1200px;
@@ -69,25 +83,31 @@
     }
 
     .logo {
-      font-size: 1.5rem;
+      font-size: 1.25rem;
       font-weight: bold;
       color: var(--primary);
       text-decoration: none;
+      display: flex;
+      align-items: center;
     }
 
     .nav-links {
       display: flex;
-      gap: 2rem;
+      gap: 1.5rem;
     }
 
     .nav-links a {
       color: var(--text);
       text-decoration: none;
-      transition: color 0.3s;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      padding: 0.25rem 0.75rem;
+      border-radius: 6px;
     }
 
     .nav-links a:hover {
       color: var(--primary);
+      background: var(--hover);
     }
 
     .theme-toggle {
@@ -99,15 +119,32 @@
     }
 
     .logo img {
-      height: 40px;
+      height: 32px;
       width: auto;
       vertical-align: middle;
       margin-right: 10px;
+      display: none;
+    }
+
+    .logo .light-logo {
+      display: block;
+    }
+
+    .logo .dark-logo {
+      display: none;
+    }
+
+    [data-theme="dark"] .logo .light-logo {
+      display: none;
+    }
+
+    [data-theme="dark"] .logo .dark-logo {
+      display: block;
     }
 
     .hero {
       height: 100vh;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      background: linear-gradient(135deg, var(--primary), var(--secondary), #059669);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -136,24 +173,25 @@
 
     .btn {
       display: inline-block;
-      padding: 0.8rem 2rem;
-      background: var(--bg);
+      padding: 1rem 2.5rem;
+      background: var(--btn-bg);
       color: var(--btn-text);
       text-decoration: none;
       border-radius: 30px;
-      font-weight: bold;
+      font-weight: 600;
+      letter-spacing: 0.5px;
       transition: all 0.3s ease;
       animation: fadeInUp 1s ease 0.4s;
       opacity: 0;
       animation-fill-mode: forwards;
-      box-shadow: var(--card-shadow);
-      border: 1px solid var(--hover);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+      border: none;
     }
 
     .btn:hover {
       transform: translateY(-3px);
-      box-shadow: 0 6px 12px var(--shadow);
-      background: var(--card-bg);
+      background: var(--btn-hover);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
     }
 
     .services {
@@ -164,8 +202,11 @@
 
     .section-title {
       text-align: center;
-      margin-bottom: 3rem;
+      margin-bottom: 3.5rem;
       color: var(--primary);
+      font-size: 2.25rem;
+      font-weight: 600;
+      letter-spacing: -0.5px;
     }
 
     .cards {
@@ -176,8 +217,8 @@
 
     .card {
       background: var(--card-bg);
-      padding: 2rem;
-      border-radius: 12px;
+      padding: 2.5rem;
+      border-radius: 16px;
       text-align: center;
       transition: all 0.3s ease;
       border: 1px solid var(--hover);
@@ -186,12 +227,41 @@
 
     .card:hover {
       transform: translateY(-10px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    }
+
+    .card h3 {
+      margin: 1.25rem 0;
+      color: var(--text);
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: -0.25px;
     }
 
     .card i {
       font-size: 2.5rem;
       color: var(--primary);
       margin-bottom: 1rem;
+      background: var(--hover);
+      width: 80px;
+      height: 80px;
+      line-height: 80px;
+      border-radius: 50%;
+      display: inline-block;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 20px rgba(37, 99, 235, 0.15);
+    }
+
+    .card:hover i {
+      transform: scale(1.1);
+      background: var(--primary);
+      color: var(--btn-text);
+    }
+
+    .card p {
+      color: var(--text);
+      opacity: 0.9;
+      line-height: 1.7;
     }
 
     .contact {
@@ -228,18 +298,40 @@
     .social-links {
       display: flex;
       justify-content: center;
-      gap: 1rem;
-      margin: 1rem 0;
+      gap: 1.5rem;
+      margin: 2rem 0;
     }
 
     .social-links a {
       color: var(--text);
       font-size: 1.5rem;
-      transition: color 0.3s;
+      transition: all 0.3s ease;
+      width: 50px;
+      height: 50px;
+      line-height: 50px;
+      border-radius: 50%;
+      background: var(--hover);
+      display: inline-block;
     }
 
     .social-links a:hover {
+      color: var(--btn-text);
+      background: var(--primary);
+      transform: translateY(-3px);
+    }
+
+    .footer p {
+      line-height: 1.8;
+    }
+
+    .footer a {
       color: var(--primary);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .footer a:hover {
+      color: var(--secondary);
     }
 
     @keyframes fadeInUp {
@@ -264,11 +356,12 @@
     }
   </style>
 </head>
-<body>
+<body data-theme="dark">
   <nav>
     <div class="nav-content">
       <a href="#" class="logo">
-        <img src="logo v2.1.png" alt="UnboundTech Logo">
+        <img src="logo v2.1.png" alt="UnboundTech Logo" class="light-logo">
+        <img src="logo v2-transparent.png" alt="UnboundTech Logo" class="dark-logo">
         UnboundTech
       </a>
       <div class="nav-links">
