@@ -62,14 +62,10 @@
       position: fixed;
       top: 0;
       width: 100%;
-      background: linear-gradient(var(--nav-overlay), var(--nav-overlay)), url('cover.png');
-      background-size: cover;
-      background-position: center;
+      background: var(--bg);
       padding: 0.5rem 1rem;
       box-shadow: 0 2px 5px var(--shadow);
       z-index: 1000;
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
       border-bottom: 1px solid var(--hover);
     }
 
@@ -118,39 +114,26 @@
       font-size: 1.2rem;
     }
 
-    .logo img {
-      height: 32px;
-      width: auto;
-      vertical-align: middle;
-      margin-right: 10px;
-      display: none;
-    }
-
-    .logo .light-logo {
-      display: block;
-    }
-
-    .logo .dark-logo {
-      display: none;
-    }
-
-    [data-theme="dark"] .logo .light-logo {
-      display: none;
-    }
-
-    [data-theme="dark"] .logo .dark-logo {
-      display: block;
-    }
 
     .hero {
       height: 100vh;
-      background: linear-gradient(135deg, var(--primary), var(--secondary), #059669);
+      background: linear-gradient(rgba(22, 163, 74, 0.92), rgba(21, 128, 61, 0.92), rgba(5, 150, 105, 0.92)), url('cover.png');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
       color: white;
       padding: 0 1rem;
+    }
+
+    [data-theme="dark"] .hero {
+      background: linear-gradient(rgba(22, 163, 74, 0.82), rgba(21, 128, 61, 0.82)), url('cover.png');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
     }
 
     .hero-content {
@@ -359,11 +342,7 @@
 <body data-theme="dark">
   <nav>
     <div class="nav-content">
-      <a href="#" class="logo">
-        <img src="logo v2.1.png" alt="UnboundTech Logo" class="light-logo">
-        <img src="logo v2-transparent.png" alt="UnboundTech Logo" class="dark-logo">
-        UnboundTech
-      </a>
+      <a href="#" class="logo">UnboundTech</a>
       <div class="nav-links">
         <a href="#about">About</a>
         <a href="#services">Services</a>
