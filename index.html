@@ -9,27 +9,35 @@
   <style>
     :root {
       --primary: #0056b3;
-      --secondary: #00356e;
-      --text: #333;
+      --secondary: #003c7e;
+      --text: #2c3e50;
       --bg: #ffffff;
       --card-bg: #f8f9fa;
       --hover: #e9ecef;
+      --footer-bg: #f4f6f8;
+      --shadow: rgba(0, 0, 0, 0.1);
+      --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      --btn-text: var(--primary);
     }
 
     [data-theme="dark"] {
-      --primary: #4d94ff;
-      --secondary: #80b3ff;
-      --text: #e9ecef;
-      --bg: #1a1a1a;
-      --card-bg: #2d2d2d;
-      --hover: #404040;
+      --primary: #3b82f6;
+      --secondary: #1d4ed8;
+      --text: #e2e8f0;
+      --bg: #0f172a;
+      --card-bg: #1e293b;
+      --hover: #334155;
+      --footer-bg: #1e293b;
+      --shadow: rgba(0, 0, 0, 0.3);
+      --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      --btn-text: #ffffff;
     }
 
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      transition: background-color 0.3s, color 0.3s;
+      transition: all 0.3s ease;
     }
 
     body {
@@ -45,8 +53,11 @@
       width: 100%;
       background: var(--bg);
       padding: 1rem;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 5px var(--shadow);
       z-index: 1000;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--hover);
     }
 
     .nav-content {
@@ -126,19 +137,23 @@
     .btn {
       display: inline-block;
       padding: 0.8rem 2rem;
-      background: white;
-      color: var(--primary);
+      background: var(--bg);
+      color: var(--btn-text);
       text-decoration: none;
       border-radius: 30px;
       font-weight: bold;
-      transition: transform 0.3s;
+      transition: all 0.3s ease;
       animation: fadeInUp 1s ease 0.4s;
       opacity: 0;
       animation-fill-mode: forwards;
+      box-shadow: var(--card-shadow);
+      border: 1px solid var(--hover);
     }
 
     .btn:hover {
       transform: translateY(-3px);
+      box-shadow: 0 6px 12px var(--shadow);
+      background: var(--card-bg);
     }
 
     .services {
@@ -162,9 +177,11 @@
     .card {
       background: var(--card-bg);
       padding: 2rem;
-      border-radius: 10px;
+      border-radius: 12px;
       text-align: center;
-      transition: transform 0.3s;
+      transition: all 0.3s ease;
+      border: 1px solid var(--hover);
+      box-shadow: var(--card-shadow);
     }
 
     .card:hover {
@@ -202,9 +219,10 @@
     }
 
     .footer {
-      background: var(--card-bg);
+      background: var(--footer-bg);
       padding: 3rem 1rem;
       text-align: center;
+      border-top: 1px solid var(--hover);
     }
 
     .social-links {
