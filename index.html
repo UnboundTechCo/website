@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>UnboundTech UG</title>
   <link rel="icon" type="image/png" href="logo v2-transparent.png">
+  <!-- Preload critical images -->
+  <link rel="preload" as="image" href="logo v2-transparent.png">
+  <link rel="preload" as="image" href="cover.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
@@ -164,32 +167,51 @@
 
     .hero {
       height: 100vh;
-      background: linear-gradient(135deg,
-        rgba(22, 163, 74, 0.92),
-        rgba(21, 128, 61, 0.92),
-        rgba(5, 150, 105, 0.92)
-      ), url('cover.png');
-      background-size: 200% 200%, cover;
-      background-position: 0 50%, center;
-      background-attachment: fixed;
+      position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
       color: white;
       padding: 0 1rem;
-      animation: gradientFlow 15s ease infinite;
+      overflow: hidden;
     }
 
-    [data-theme="dark"] .hero {
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
       background: linear-gradient(135deg,
-        rgba(22, 163, 74, 0.82),
-        rgba(21, 128, 61, 0.82)
-      ), url('cover.png');
-      background-size: 200% 200%, cover;
-      background-position: 0 50%, center;
-      background-attachment: fixed;
-      animation: gradientFlow 15s ease infinite;
+        rgba(22, 163, 74, 0.92),
+        rgba(21, 128, 61, 0.92),
+        rgba(5, 150, 105, 0.92)
+      );
+      z-index: 1;
+    }
+
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    [data-theme="dark"] .hero::before {
+      background: linear-gradient(135deg,
+        rgba(22, 163, 74, 0.92),
+        rgba(21, 128, 61, 0.92)
+      );
     }
 
     .hero-content {
@@ -439,8 +461,41 @@
   </nav>
 
   <section class="hero">
+    <picture>
+      <source 
+        media="(max-width: 640px)" 
+        srcset="cover.png 640w"
+        width="640"
+        height="960">
+      <source 
+        media="(max-width: 1024px)" 
+        srcset="cover.png 1024w"
+        width="1024"
+        height="1536">
+      <source 
+        media="(min-width: 1025px)" 
+        srcset="cover.png 1920w"
+        width="1920"
+        height="1080">
+      <img 
+        class="hero-bg"
+        src="cover.png"
+        alt=""
+        loading="eager"
+        decoding="async"
+        fetchpriority="high"
+        width="1920"
+        height="1080">
+    </picture>
     <div class="hero-content">
-      <img src="logo v2-transparent.png" alt="UnboundTech Logo" style="height: 160px; width: auto; margin-bottom: 1rem;">
+      <img 
+        src="logo v2-transparent.png" 
+        alt="UnboundTech Logo" 
+        style="height: 160px; width: 160px; margin-bottom: 1rem;"
+        width="160"
+        height="160"
+        loading="eager"
+        decoding="async">
       <h1>UnboundTech UG</h1>
       <p>Empowering businesses through innovative technology solutions</p>
       <a href="mailto:info@unboundtech.de" class="btn">Get in touch</a>
