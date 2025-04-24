@@ -1,0 +1,36 @@
+The idea for Defyx was born on the second Tuesday of February — which happened to be Safer Internet Day.
+
+That day, a group of us — developers and tech enthusiasts — came together and decided to build a secure and efficient app called #DefyxVPN: a cross-platform VPN for both mobile and desktop.
+
+We kicked things off right then and there, and today, the beta version of Defyx is available on TestFlight for iPhone.
+
+If you'd like to be among the first to try it out, we’d love to hear from you.
+Just shoot us an email at defyx@unboundtech.de, and feel free to share your feedback or ideas after giving the app a go.
+
+-> image photo_2025-04-24_10-30-51
+
+---------------------------------------
+
+Hello, world!
+We built #DefyxVPN to make the internet safer, freer, and more open for everyone.
+We’re still deep in the ones and zeros — crafting every detail with care — to bring you a tool that feels like a trustworthy companion. Something you can rely on, use with ease, and count on when things get tough.
+
+If internet freedom matters to you, we’re right here with you.
+Stay tuned — exciting updates are on the way.
+
+#Defyx #DigitalPrivacy #OpenInternet
+
+-> image photo_2025-04-24_10-31-55
+
+---------------------------------------
+
+We don’t just believe in #transparency and open source — we live by it.
+As soon as we move out of beta, you’ll be able to browse the full documentation and source code on #GitHub.
+It’s our way of keeping things clear and building trust — no room for doubts or question marks.
+Even better? It’s a chance to learn from each other. You can explore how #Defyx works under the hood, contribute to its development, and help us make it even better.
+
+We’ll keep you posted — stay tuned!
+
+#DefyxVPN #DigitalPrivacy #OpenInternet
+
+-> photo_2025-04-24_10-32-01
