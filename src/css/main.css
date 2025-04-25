@@ -1,0 +1,9 @@
+/* Core styles */
+@import 'variables.css';
+@import 'base.css';
+
+/* Components */
+@import 'components/navigation.css';
+@import 'components/hero.css';
+@import 'components/services.css';
+@import 'components/footer.css';
