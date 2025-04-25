@@ -66,6 +66,83 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 2rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      margin: 0 auto;
+    }
+
+    .nav-links a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      padding: 0.25rem 0.75rem;
+      border-radius: 6px;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+      background: var(--hover);
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text);
+      cursor: pointer;
+      font-size: 1.5rem;
+    }
+
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: var(--nav-overlay);
+      backdrop-filter: blur(8px);
+      z-index: 999;
+      padding: 2rem;
+    }
+
+    .mobile-nav.active {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .mobile-nav a {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 1.25rem;
+      font-weight: 500;
+      padding: 0.5rem 1.5rem;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .mobile-nav a:hover {
+      background: var(--hover);
+      color: var(--primary);
+    }
+
+    .close-menu {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      color: var(--text);
+      font-size: 1.5rem;
+      cursor: pointer;
     }
 
     .logo {
@@ -131,6 +208,36 @@
       border-radius: 12px;
       margin: 0 auto;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+      object-fit: cover;
+      aspect-ratio: 16/9;
+    }
+
+    @media (max-width: 500px) {
+      .section-image {
+        max-width: 100%;
+        border-radius: 8px;
+      }
+
+      .main-content {
+        padding: 1rem;
+      }
+
+      .product-section {
+        gap: 1rem;
+      }
+
+      .product-header {
+        gap: 1rem;
+      }
+
+      .product-logo {
+        width: 80px;
+        height: 80px;
+      }
+
+      .product-title h1 {
+        font-size: 2rem;
+      }
     }
 
     .story-section {
@@ -199,6 +306,14 @@
     }
 
     @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
       .product-header {
         text-align: center;
         justify-content: center;
@@ -218,15 +333,32 @@
   <nav>
     <div class="nav-content">
       <a href="index.html" class="logo">UnboundTech</a>
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#download">Download</a>
+        <a href="#community">Community</a>
+      </div>
       <button class="theme-toggle" onclick="toggleTheme()">
         <i class="fas fa-moon"></i>
       </button>
+      <button class="menu-toggle" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+      </button>
     </div>
   </nav>
+  
+  <div class="mobile-nav">
+    <button class="close-menu" onclick="toggleMenu()">
+      <i class="fas fa-times"></i>
+    </button>
+    <a href="#features" onclick="toggleMenu()">Features</a>
+    <a href="#download" onclick="toggleMenu()">Download</a>
+    <a href="#community" onclick="toggleMenu()">Community</a>
+  </div>
 
   <main class="main-content">
     <div class="product-header">
-      <img src="DefyxVPN/logo.jpg" alt="DefyxVPN Logo" class="product-logo">
+      <img src="./defyx/app-icon.jpg" alt="DefyxVPN App Icon" class="product-logo">
       <div class="product-title">
         <h1>DefyxVPN</h1>
         <p>A cross-platform VPN for both mobile and desktop</p>
@@ -234,7 +366,7 @@
     </div>
 
     <div class="product-sections">
-      <section class="product-section">
+      <section id="features" class="product-section">
         <div class="story-section">
           <h2 style="color: var(--primary); margin-bottom: 2rem;">Your Privacy Companion</h2>
           <p style="margin-bottom: 2rem;">
@@ -244,7 +376,7 @@
             With a focus on transparency and user trust, we're crafting a tool that not only protects your privacy but also enhances your digital freedom. Every feature is thoughtfully designed to provide both security and simplicity, making internet privacy effortless.
           </p>
         </div>
-        <img src="DefyxVPN/photo_2025-04-24_10-30-51.jpg" alt="DefyxVPN in Action" class="section-image">
+        <img src="./defyx/app-screenshot.jpg" alt="DefyxVPN App Interface" class="section-image">
       </section>
 
       <section class="product-section">
@@ -257,7 +389,7 @@
             Currently in beta, we're continuously refining every aspect of the experience to create a VPN service that truly puts users first. Join us in shaping the future of internet privacy.
           </p>
         </div>
-        <img src="DefyxVPN/photo_2025-04-24_10-31-55.jpg" alt="DefyxVPN Screenshot" class="section-image">
+        <img src="./defyx/features-overview.jpg" alt="DefyxVPN Features Overview" class="section-image">
       </section>
 
       <section class="product-section">
@@ -270,10 +402,10 @@
             By choosing DefyxVPN, you're not just getting a VPN—you're joining a community dedicated to making the internet more secure and accessible for everyone.
           </p>
         </div>
-        <img src="DefyxVPN/photo_2025-04-24_10-32-01.jpg" alt="DefyxVPN Features" class="section-image">
+        <img src="./defyx/security-features.jpg" alt="DefyxVPN Security Features" class="section-image">
       </section>
 
-      <section class="product-section" style="text-align: center;">
+      <section id="download" class="product-section" style="text-align: center;">
         <h2 style="margin-bottom: 1.5rem;">Download Now</h2>
         <div class="download-buttons" style="justify-content: center;">
           <a href="#" class="btn" style="display: flex; align-items: center; gap: 0.5rem;">
@@ -288,7 +420,7 @@
         </div>
       </section>
 
-      <section class="product-section" style="text-align: center;">
+      <section id="community" class="product-section" style="text-align: center;">
         <h2 style="margin-bottom: 1.5rem;">Join Our Community</h2>
         <div class="social-links" style="justify-content: center;">
           <a href="https://twitter.com/defyxvpn" target="_blank"><i class="fab fa-twitter"></i></a>
@@ -319,6 +451,12 @@
         icon.classList.remove('fa-moon');
         icon.classList.add('fa-sun');
       }
+    }
+  </script>
+  <script>
+    function toggleMenu() {
+      const mobileNav = document.querySelector('.mobile-nav');
+      mobileNav.classList.toggle('active');
     }
   </script>
 </body>
