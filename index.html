@@ -441,11 +441,11 @@
       border-top: 1px solid var(--hover);
     }
 
-    .social-links {
+      .social-links {
       display: flex;
-      justify-content: center;
       gap: 1.5rem;
       margin: 2rem 0;
+      justify-content: center;
     }
 
     .social-links a {
@@ -458,12 +458,15 @@
       border-radius: 50%;
       background: var(--hover);
       display: inline-block;
+      text-align: center;
+      box-shadow: 0 4px 6px var(--shadow);
     }
 
     .social-links a:hover {
       color: var(--btn-text);
       background: var(--primary);
       transform: translateY(-3px);
+      box-shadow: 0 6px 12px var(--shadow);
     }
 
     .footer p {
