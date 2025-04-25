@@ -39,6 +39,26 @@
   box-shadow: 0 6px 12px var(--shadow);
 }
 
+/* Consistent hover and focus states */
+.social-links a:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--bg), 0 0 0 6px var(--primary);
+}
+
+/* Add subtle scale effect */
+.social-links a:active {
+  transform: scale(0.95);
+}
+
+/* Make sure icons are centered */
+.social-links i {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
 .footer p {
   line-height: 1.8;
   margin-bottom: 1rem;
