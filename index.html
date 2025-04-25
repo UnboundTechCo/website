@@ -164,6 +164,62 @@
       font-size: 1.2rem;
     }
 
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text);
+      cursor: pointer;
+      font-size: 1.5rem;
+    }
+
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: var(--nav-overlay);
+      backdrop-filter: blur(8px);
+      z-index: 999;
+      padding: 2rem;
+    }
+
+    .mobile-nav.active {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .mobile-nav a {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 1.25rem;
+      font-weight: 500;
+      padding: 0.5rem 1.5rem;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .mobile-nav a:hover {
+      color: var(--primary);
+      background: var(--hover);
+    }
+
+    .close-menu {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      color: var(--text);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
 
     .hero {
       height: 100vh;
@@ -440,6 +496,10 @@
         display: none;
       }
 
+      .menu-toggle {
+        display: block;
+      }
+
       .hero h1 {
         font-size: 2.5rem;
       }
@@ -458,8 +518,20 @@
       <button class="theme-toggle" onclick="toggleTheme()">
         <i class="fas fa-moon"></i>
       </button>
+      <button class="menu-toggle" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+      </button>
     </div>
   </nav>
+  
+  <div class="mobile-nav">
+    <button class="close-menu" onclick="toggleMenu()">
+      <i class="fas fa-times"></i>
+    </button>
+    <a href="#about" onclick="toggleMenu()">About</a>
+    <a href="#products" onclick="toggleMenu()">Products</a>
+    <a href="#services" onclick="toggleMenu()">Services</a>
+  </div>
 
   <section class="hero">
     <picture>
@@ -603,6 +675,12 @@
         icon.classList.remove('fa-moon');
         icon.classList.add('fa-sun');
       }
+    }
+  </script>
+  <script>
+    function toggleMenu() {
+      const mobileNav = document.querySelector('.mobile-nav');
+      mobileNav.classList.toggle('active');
     }
   </script>
 </body>
