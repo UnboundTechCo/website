@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DefyxVPN - UnboundTech</title>
+  <link rel="icon" type="image/png" href="src/assets/logo v2-transparent.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="src/css/main.css">
+  <link rel="stylesheet" href="src/css/components/defyx.css">
+</head>
+<body data-theme="dark">
+  <nav>
+    <div class="nav-content">
+      <a href="index.html" class="logo">UnboundTech</a>
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#download">Download</a>
+        <a href="#community">Community</a>
+      </div>
+      <button class="theme-toggle" onclick="toggleTheme()">
+        <i class="fas fa-moon"></i>
+      </button>
+      <button class="menu-toggle" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </nav>
+  
+  <div class="mobile-nav">
+    <button class="close-menu" onclick="toggleMenu()">
+      <i class="fas fa-times"></i>
+    </button>
+    <a href="#features" onclick="toggleMenu()">Features</a>
+    <a href="#download" onclick="toggleMenu()">Download</a>
+    <a href="#community" onclick="toggleMenu()">Community</a>
+  </div>
+
+  <main class="main-content">
+    <div class="product-header">
+      <img src="src/assets/defyx/app-icon.jpg" alt="DefyxVPN App Icon" class="product-logo">
+      <div class="product-title">
+        <h1>DefyxVPN</h1>
+        <p>A secure gateway to bypass censorship & access the open internet</p>
+      </div>
+    </div>
+
+    <div class="product-sections">
+      <section id="features" class="product-section">
+        <div class="story-section">
+          <h2 style="color: var(--primary); margin-bottom: 2rem;">Your Privacy Companion</h2>
+          <p style="margin-bottom: 2rem;">
+            DefyxVPN was born from a vision to make internet privacy accessible to everyone. Built by a passionate team of security experts and privacy advocates, our cross-platform VPN delivers a seamless, secure experience across all your devices.
+          </p>
+          <p style="margin-bottom: 2rem;">
+            With a focus on transparency and user trust, we're crafting a tool that not only protects your privacy but also enhances your digital freedom. Every feature is thoughtfully designed to provide both security and simplicity, making internet privacy effortless.
+          </p>
+        </div>
+        <img src="src/assets/defyx/app-screenshot.jpg" alt="DefyxVPN App Interface" class="section-image">
+      </section>
+
+      <section class="product-section">
+        <div class="story-section">
+          <h2 style="color: var(--primary); margin-bottom: 2rem;">Built for Freedom</h2>
+          <p style="margin-bottom: 2rem;">
+            At its core, DefyxVPN is more than just a VPN—it's your gateway to a safer, more open internet. Our commitment to privacy goes hand in hand with our dedication to performance, ensuring you never have to choose between security and speed.
+          </p>
+          <p>
+            Currently in beta, we're continuously refining every aspect of the experience to create a VPN service that truly puts users first. Join us in shaping the future of internet privacy.
+          </p>
+        </div>
+        <img src="src/assets/defyx/features-overview.jpg" alt="DefyxVPN Features Overview" class="section-image">
+      </section>
+
+      <section class="product-section">
+        <div class="story-section">
+          <h2 style="color: var(--primary); margin-bottom: 2rem;">Open Source & Transparent</h2>
+          <p style="margin-bottom: 2rem;">
+            Trust is earned through transparency. That's why DefyxVPN is committed to being fully open source. Soon, you'll have complete access to our code and documentation on GitHub, allowing you to verify our security practices and contribute to making DefyxVPN even better.
+          </p>
+          <p>
+            By choosing DefyxVPN, you're not just getting a VPN—you're joining a community dedicated to making the internet more secure and accessible for everyone.
+          </p>
+        </div>
+        <img src="src/assets/defyx/security-features.jpg" alt="DefyxVPN Security Features" class="section-image">
+      </section>
+
+      <section id="download" class="product-section" style="text-align: center;">
+        <h2 style="margin-bottom: 1.5rem;">Download Now</h2>
+        <div class="download-buttons" style="justify-content: center;">
+          <a href="#" class="btn" style="display: flex; align-items: center; gap: 0.5rem;">
+            <i class="fab fa-apple"></i> App Store
+          </a>
+          <a href="#" class="btn" style="display: flex; align-items: center; gap: 0.5rem;">
+            <i class="fab fa-google-play"></i> Play Store
+          </a>
+          <a href="#" class="btn" style="display: flex; align-items: center; gap: 0.5rem;">
+            <i class="fab fa-microsoft"></i> Microsoft Store
+          </a>
+        </div>
+      </section>
+
+      <section id="community" class="product-section" style="text-align: center;">
+        <h2 style="margin-bottom: 1.5rem;">Join Our Community</h2>
+        <div class="social-links" style="justify-content: center;">
+          <a href="https://twitter.com/defyxvpn" target="_blank"><i class="fab fa-twitter"></i></a>
+          <a href="https://github.com/defyxvpn" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="https://instagram.com/defyxvpn" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://t.me/defyxvpn" target="_blank"><i class="fab fa-telegram"></i></a>
+          <a href="mailto:defyx@unboundtech.de"><i class="fas fa-envelope"></i></a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2025 UnboundTech UG — All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="src/js/main.js"></script>
+</body>
+</html>
