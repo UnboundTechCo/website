@@ -291,14 +291,34 @@
     </style>
 </head>
 <body data-theme="dark">
-    <nav>
-        <div class="nav-content">
-            <a href="../defyx.html" class="logo">DefyxVPN</a>
-            <button class="theme-toggle" onclick="toggleTheme()">
-                <i class="fas fa-moon"></i>
-            </button>
-        </div>
-    </nav>
+  <nav>
+    <div class="nav-content">
+      <a href="../index.html" class="logo">UnboundTech</a>
+      <div class="nav-links">
+        <a href="index.html#features">Features</a>
+        <a href="index.html#download">Download</a>
+        <a href="contact.html">Contact</a>
+        <a href="privacy-policy.html">Privacy</a>
+        <a href="terms-and-conditions.html">Terms</a>
+      </div>
+      <button class="theme-toggle" onclick="toggleTheme()">
+        <i class="fas fa-moon"></i>
+      </button>
+      <button class="menu-toggle" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-nav">
+    <button class="close-menu" onclick="toggleMenu()">
+      <i class="fas fa-times"></i>
+    </button>
+    <a href="index.html#features" onclick="toggleMenu()">Features</a>
+    <a href="index.html#download" onclick="toggleMenu()">Download</a>
+    <a href="contact.html" onclick="toggleMenu()">Contact</a>
+    <a href="privacy-policy.html" onclick="toggleMenu()">Privacy</a>
+    <a href="terms-and-conditions.html" onclick="toggleMenu()">Terms</a>
+  </div>
 
     <main>
         <h1>Privacy Policy</h1>
@@ -400,6 +420,11 @@
                 icon.classList.remove('fa-moon');
                 icon.classList.add('fa-sun');
             }
+        }
+
+        function toggleMenu() {
+            const mobileNav = document.querySelector('.mobile-nav');
+            mobileNav.classList.toggle('active');
         }
     </script>
 </body>
