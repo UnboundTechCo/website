@@ -1,3 +1,19 @@
+// Clickjacking Protection - Frame-busting code
+(function() {
+  if (window.top !== window.self) {
+    // The page is in an iframe
+    try {
+      // Try to break out of the iframe
+      window.top.location = window.self.location;
+    } catch (e) {
+      // If we can't break out (cross-origin), hide the content
+      document.body.style.display = 'none';
+      // Optionally show a warning message
+      alert('For security reasons, this page cannot be displayed in a frame.');
+    }
+  }
+})();
+
 // Theme toggling functionality
 function toggleTheme() {
   const body = document.body;
