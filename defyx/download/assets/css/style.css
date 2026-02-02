@@ -12,10 +12,7 @@
 * {
   box-sizing: border-box;
 }
-html,
-body {
-  height: 100%;
-}
+
 html {
   background: var(--bg);
 }
@@ -46,8 +43,6 @@ body {
     ),
     var(--bg);
   background-color: var(--bg);
-  overflow-x: hidden;
-  min-height: 105vh;
 }
 
 .wrap {
@@ -295,18 +290,26 @@ footer {
   padding: 0 2px;
 }
 
-@media (max-width: 880px) {
+@media (max-width: 600px) {
   .grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
-@media (max-width: 760px) {
+
+@media (max-width: 500px) {
   .grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
-@media (max-width: 520px) {
+
+@media (max-width: 350px) {
   .grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .tile {
+    aspect-ratio: auto;
+  }
+  .tileInner {
+    padding: 7px;
   }
 }
